@@ -14,8 +14,23 @@ for (var i =0; i < document.querySelectorAll(".drum").length ; i++) {
     //this -> the event that was clicked as html element
     // for testing -> this.style.color = "white"
     var buttonInnerHTML = this.innerHTML;
-       
-        switch (buttonInnerHTML) {
+    
+    makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
+});}
+
+// for key board just add event listener to the whole doc
+
+var keyPlay = document.addEventListener("keydown", function(event){
+    var keyPressed = event.key;
+    makeSound(keyPressed)
+    buttonAnimation(keyPressed);
+});
+    
+//make sounds
+    function makeSound(key){
+
+        switch (key) {
             case "w":
                 var tom1 = new Audio("sounds/tom-1.mp3")
                 tom1.play();
@@ -51,12 +66,18 @@ for (var i =0; i < document.querySelectorAll(".drum").length ; i++) {
                     kick.play();
                     break;
                     
-            default: console.log(buttonInnerHTML);
+            default: console.log(key);
                 break;
         }
+    };
+        
+// animation to buttom
 
-        var audio = new Audio("sounds/tom-1.mp3")
-        audio.play();
-    });
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("."+ currentKey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    }, 100);
 }
-
