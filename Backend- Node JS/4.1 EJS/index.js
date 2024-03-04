@@ -2,21 +2,16 @@ import express from "express";
 const app = express();
 const port = 3000;
 
-var currentdate = new Date();
-var currentday = currentdate.getDay()+1;
-
-console.log(currentday);
-
 app.get("/", (req, res) => {
-    if (currentday <= 5) {
-        res.send("<h1>Hey ! it's a week day !</h1>");
-    }
-    else {
-        res.send("<h1>Hey! it's the weekend !</h1>");}
-  });  
-
-
+  const data = {
+    title: "EJS Tags",
+    seconds: new Date().getSeconds(),
+    items: ["apple", "banana", "cherry"],
+    htmlContent: "<strong>This is some strong text</strong>",
+  };
+  res.render("index.ejs", data);
+});
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
- });
+  console.log(`Server is running on port ${port}`);
+});
