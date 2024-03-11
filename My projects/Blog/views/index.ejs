@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+</head>
+
+<body>
+    <h1>Welcome to my magical blog</h1>
+    <p>here I will share my journey in the mythical world one post at a time, weekly updates</p>
+    <form action="/add" method="POST">
+        <input type="submit" value="add new post">
+    </form>
+
+    <div class="middle-container">
+        <h2>The blog</h2>
+        <div class="old-post" id="post1">
+            <img class="profile-img" src="https://cdn-icons-png.flaticon.com/128/5294/5294582.png">
+            <h3 class="post-title"><%- pos1_title %></h3>
+            <p class="post"> <%- pos1_post %>
+                <br>
+                <%- pos1_timePost %>
+                <form action="/edit" method="POST">
+                    <input type="submit" value="edit post">
+                </form>
+            </p>
+        </div>
+
+        <div class="old-post" id="post2">
+            <img class="profile-img" src="https://cdn-icons-png.flaticon.com/128/5294/5294582.png">
+            <h3 class="post-title"><%- pos2_title %></h3>
+            <p class="post"> <%- pos2_post %>
+                <br>
+                <%- pos2_timePost %>
+                <form action="/edit" method="POST">
+                    <input type="submit" value="edit post">
+                </form>
+            </p>
+        </div>
+
+
+        <div class="old-post" id="2018">
+            <img class="profile-img" src="https://cdn-icons-png.flaticon.com/128/5294/5294582.png">
+            <h3>orc meeting</h3>
+            <p>the meeting was so interesting to watch, I'm glad I spied on them
+                <br>
+                <%= new Date(2018,10,29,10,33).toDateString() %>
+                    <a href="edit-post">edit</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
